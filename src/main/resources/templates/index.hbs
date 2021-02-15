@@ -1,0 +1,22 @@
+{{#partial "content"}}
+    <h1>Posts List:</h1>
+
+    {{#if posts}}
+        {{#each posts }}
+            <p>Current post:</p>
+            <p>{{ content }}</p>
+        {{/each}}
+    {{else}}
+        <p>No posts!</p>
+    {{/if}}
+
+    <p>Add a new post:</p>
+
+    <form action="/posts/new" method="post">
+        <label for="content">Post Description:</label>
+        <input type="text" id="content" name="content" class="form-control">
+        <button type="submit" class="btn btn-default">Add Post</button>
+    </form>
+{{/partial}}
+
+{{> layout.hbs}}

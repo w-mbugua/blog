@@ -27,4 +27,19 @@ public class PostTest {
         Post post = new Post("Day 1: intro");
         assertEquals("Day 1: intro", post.getContent());
     }
+
+    @Test
+    public void allPostsAreCorrectlyReturned_true() {
+        Post newPost = new Post("Dy 1: intro");
+        Post otherPost = new Post("How to learn effectively");
+        assertEquals(2, Post.getAll().size());
+    }
+
+    @Test
+    public void postContainsAllPosts_true() {
+        Post newPost = new Post("Dy 1: intro");
+        Post otherPost = new Post("How to learn effectively");
+        assertTrue(Post.getAll().contains(newPost));
+        assertTrue(Post.getAll().contains(otherPost));
+    }
 }
