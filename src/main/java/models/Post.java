@@ -41,4 +41,8 @@ public class Post {
     public int getId(){
         return id;
     }
+
+    public static Post findById(int Id){
+        return instances.get(Id-1);
+    }
 }

@@ -63,10 +63,22 @@ public class PostTest {
     @Test
     public void getId_postsInstantiateWithAnID_1() throws Exception{
 
-        Post.clearAll();  // Remember, the test will fail without this line! We need to empty leftover Posts from previous tests!
 
         Post myPost = new Post("Day 1: Intro");
-
+        Post.clearAll();
         assertEquals(1, myPost.getId());
+    }
+
+    @Test
+    public void findReturnsCorrectPost() throws Exception {
+        Post post = setUpNewPost();
+        assertEquals(1, Post.findById(post.getId()).getId());
+    }
+
+    @Test
+    public void findReturnsCorrectPostWhenMoreThanOnePostExists() {
+        Post post = setUpNewPost();
+        Post otherPost = new Post("How to lean effectively");
+        assertEquals(2, Post.findById(otherPost.getId()).getId());
     }
 }
