@@ -3,19 +3,19 @@
 
     {{#if posts}}
         {{#each posts }}
-            <p>Current post:</p>
+            <h3>Current post</h3>
             <p>{{ content }}</p>
         {{/each}}
     {{else}}
         <p>No posts!</p>
     {{/if}}
 
-    <p>Add a new post:</p>
+    <h3>Add a new post</h3>
 
     <form action="/posts/new" method="post">
         <label for="content">Post Description:</label>
         <input type="text" id="content" name="content" class="form-control">
-        <button type="submit" class="btn btn-default">Add Post</button>
+        <button type="submit" class="btn btn-primary">Add Post</button>
     </form>
 {{/partial}}
 
