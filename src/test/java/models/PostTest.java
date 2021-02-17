@@ -16,6 +16,7 @@ public class PostTest {
 
     @After
     public void tearDown() throws Exception {
+        Post.clearAll(); //clears out all posts before each test
     }
 
     public Post setUpNewPost(){
@@ -80,5 +81,39 @@ public class PostTest {
         Post post = setUpNewPost();
         Post otherPost = new Post("How to lean effectively");
         assertEquals(2, Post.findById(otherPost.getId()).getId());
+    }
+
+    @Test
+    public void updateChangePostContent() throws Exception {
+
+        Post post = setUpNewPost();
+
+        String formerContent = post.getContent();
+        LocalDateTime formerDate = post.getCreatedAt();
+        int formerId = post.getId();
+
+        post.update("Android: Day 40");
+
+        assertEquals(formerId, post.getId());
+        assertEquals(formerDate, post.getCreatedAt());
+        assertEquals(formerContent, post.getContent());
+    }
+
+    @Test
+    public void deleteDeletesASpescificPost() throws Exception {
+        Post post = setUpNewPost();
+        Post otherPost = new Post("How to communicate effectively");
+        post.deletePost();
+        assertEquals(1, Post.getAll().size()); //that is only one is left
+        assertEquals(Post.getAll().get(0).getId(), 2);
+    }
+
+    @Test
+    public void deleteAllPostsDeletesAllPosts() throws Exception {
+        Post post = setUpNewPost();
+        Post otherPost = setUpNewPost();
+
+        Post.clearAll();
+        assertEquals(0, Post.getAll().size());
     }
 }

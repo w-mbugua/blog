@@ -4,19 +4,11 @@
     {{#if posts}}
         {{#each posts }}
             <h3>Current post</h3>
-            <p>{{ content }}</p>
+            <p>{{ content }} <a href="/posts/{{id}}">Read More...</a></p>
         {{/each}}
     {{else}}
         <p>No posts!</p>
     {{/if}}
-
-    <h3>Add a new post</h3>
-
-    <form action="/posts/new" method="post">
-        <label for="content">Post Description:</label>
-        <input type="text" id="content" name="content" class="form-control">
-        <button type="submit" class="btn btn-primary">Add Post</button>
-    </form>
 {{/partial}}
 
 {{> layout.hbs}}

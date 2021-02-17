@@ -45,4 +45,11 @@ public class Post {
     public static Post findById(int Id){
         return instances.get(Id-1);
     }
+    public void update(String content){
+        this.content = content;
+    }
+
+    public void deletePost(){
+        instances.remove(id-1);
+    }
 }

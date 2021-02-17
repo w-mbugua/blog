@@ -11,11 +11,32 @@
 
   </head>
   <body>
+    <ul class="nav navtabs">
+        <li class="active" role="presentation"><a href="#">Home</a></li>
+        <li class="active" role="presentation"><a href="/posts">See All Posts</a></li>
+        <li class="active" role="presentation"><a href="/posts/new">Add a new post</a></li>
+    </ul>
 {{/block}}
-    <div class="content">
-        {{#block "content"}}{{/block}}
-    </div>
+   <div class="container">
+       <div class="page-header">
+           <img src="/images/header1.jpg" width="70%" alt="header image">
+           <h1>Welcome to my Epicodus Blog. <small>A journey into code!</small> </h1>
+       </div>
+       <div class="col-md-12">
+          {{#block "content"}}
+
+          {{/block}}
+       </div>
+
+
+   </div> 
+
   {{#block "footer"}}
+      <footer class="footer">
+          <div class="container">
+              <p class="text-muted"><a href="/posts/delete">Delete All Posts</a></p>
+          </div>
+      </footer>
   </body>
 </html>
   {{/block}}
